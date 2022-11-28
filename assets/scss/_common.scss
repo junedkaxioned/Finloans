@@ -1,0 +1,42 @@
+/* for wrapper */
+.wrapper {
+  max-width: 1360px;
+  width: 57%; 
+  margin: 0 auto;
+}
+
+img { 
+  @include image(cover, center)
+}
+
+html {
+  &.stop-scroll { overflow: hidden; }
+}
+  
+
+@at-root {
+  .bg-color {
+    padding: 0px 5px;
+    background-color: $offWhite;
+  }
+
+  .forground-color { color: $green; }
+}
+
+@include responsiveMinMax(1024px, 1280px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
+@include responsiveMinMax(995px, 1023px) {
+  .wrapper { width: 80%; }
+}
+
+@include responsiveMinMax(768px, 994px) {
+  .wrapper { width: 85%; }
+}
+
+@include responsiveMax(767px) {
+  .wrapper { width: 90%; }
+}
