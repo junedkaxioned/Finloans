@@ -1,0 +1,75 @@
+.frequently-ask-section {
+  .wrapper {
+    width: 100%;
+    @include flexbox(flex);
+
+    figure {
+      @include flex-basis (50%);
+    }
+
+    @at-root {
+      .accordian-container {
+        padding: 130px 124px 0 82px;
+        @include flex-basis (50%);
+
+        .heading {
+          text-align: left;
+          &::before {
+            display: none;
+          }
+        }
+
+       @at-root .accordions {
+          margin: 40px 0;
+
+          li {
+            width: 100%;
+            padding: 18px 0 18px ;
+            border-bottom: 1px solid $lightgrey;
+         
+            @at-root .accordion-title {
+             @include flexbox (flex, center);
+              color: $darkblue;
+              cursor: pointer;
+              font-size: $medium-font;
+              @include transition (.5s);
+
+              &::before {
+                @include icons ("\f078", $grey, $small);
+                margin-right: 30px;
+              }
+
+              &:hover::before { color: $lightblue;}
+
+              &:hover {
+                color: $lightblue;
+              }
+
+            }
+
+            @at-root .accordion-content {
+              padding: 24px 30px 15px;
+              display: none;
+
+              p {
+                line-height: 1.8;
+              }
+            }
+
+            &.active .accordion-content {
+              display: block;
+            }
+
+            &.active .accordion-title {
+              &::before {
+              content: "\f077";
+              }
+            }
+          
+          }
+        }
+      }
+
+    }
+  }
+}

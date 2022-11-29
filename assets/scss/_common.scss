@@ -19,13 +19,52 @@ html {
   &.stop-scroll { overflow: hidden; }
 }
 
-@at-root .btn {
-  padding: 16px 32px;
-  border: 1px solid $turquoise;
-  border-radius: 5px;
-  background-color: $turquoise;
-  color: $white;
-  font-size: $small;
-  font-weight: $semi-bold;
-  text-transform: capitalize;
+@at-root {
+
+  // Common paragraph Style
+  p {
+    color: $grey;
+    font-weight: $semi-bold;
+  }
+
+  // Common Button Style
+  .btn {
+    padding: 14px 28px;
+    border: 1px solid $turquoise;
+    border-radius: 5px;
+    background-color: $turquoise;
+    color: $white;
+    font-size: $normal-font;
+    font-weight: $semi-bold;
+    text-transform: capitalize;
+    @include transition (.5s);
+
+    &:hover {
+      background-color: transparent;
+      color: $turquoise;
+    }
+  }
+
+  // Common Heading Style
+  .heading {
+    position: relative;
+    color: $darkblue;
+    font-size: $large-medium - 4;
+    text-align: center;
+
+    &::before {
+      content: "";
+      width: 5.5%;
+      height: 3px;
+      border-radius: 50px;
+      @include positions (absolute, $top:-26%, $left: 47.2%);
+      background-color: $turquoise;
+    }
+  }
+
+  // Common Sub Heading Style
+  .sub-heading {
+    padding: 18px 0;
+    text-align: center; 
+  }
 }

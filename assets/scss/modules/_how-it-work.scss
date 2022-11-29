@@ -1,0 +1,58 @@
+.how-it-work {
+  padding: 172px 0 105px;
+  background-color: lighten($lightblue, 36.8%);
+
+  @at-root .works-lists {
+    padding: 55px 0;
+    @include flexbox (flex, center, $justify: space-between);
+
+    li {
+      width: 100%;
+      margin: 0 40px;
+      @include flexbox (flex, $direction:column);
+
+      @at-root .list-num {
+        padding: 20px 0;
+        display: block;
+        text-indent: -99999px;
+
+        &::before {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          @include flexbox (flex, center, $justify: center);
+          float: left;
+          background-color: lighten($lightblue, 33%);
+          color: $lightblue;
+          font-weight: $bold;
+          text-indent: 0;
+        }
+      }
+
+      h3 {
+        color: $darkblue;
+        font-size: $medium-large;
+      }
+
+      p {
+        padding: 15px 0;
+        line-height: 1.8;
+      }
+
+      &:first-child {
+        margin-left: 0 ;
+      }
+
+    }
+
+    @each $key,
+    $value in $work-num {
+      li:nth-child(#{$key}) .list-num {
+        &::before {
+          content: $value;
+        }
+      }
+    }
+
+  }
+}

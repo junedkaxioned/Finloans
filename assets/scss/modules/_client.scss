@@ -1,0 +1,105 @@
+.client-section {
+  padding: 100px 0 45px;
+
+  .wrapper {
+    .d-none {
+      display: none;
+    }
+
+    @at-root .testimonials {
+      padding: 48px 0;
+      @include flexbox (flex, center);
+
+      figure {
+        border-radius: 50%;
+        margin-right: 70px;
+        @include flexbox (flex, center, $justify: space-between);
+        position: relative;
+
+        img {
+          border-radius: 50%;
+          @include flex-basis (20%);
+        }
+
+        @at-root .review {
+          margin-top: 15px;
+          @include flex-basis (71%);
+
+          p {
+            color: $darkblue;
+            font-size: $medium-font;
+            font-weight: $normal;
+            line-height: 1.8;
+
+            &::before {
+              content: '"';
+            }
+          }
+
+          .client-name {
+            padding: 15px 0;
+            display: block;
+            color: $grey;
+
+            &::before {
+              content: "- ";
+            }
+          }
+        }
+
+        &::before {
+          @include icons ("\f10d", $white, $medium-large);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          @include flexbox (flex, center, $justify: center);
+          @include positions (absolute, $left: 17.1%, $bottom: 0);
+          background-color: $turquoise;
+        }
+      }
+
+      @at-root {
+        .prev-btn {
+          text-indent: -99999px;
+          margin-top: 10px;
+
+
+          &::before {
+            @include icons ("\f104", $lightblue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            @include flexbox (flex, center, $justify: center);
+            float: left;
+            background-color: lighten($lightblue, 35%);
+            text-indent: 0;
+            @include transition (.5s);
+          }
+
+          &:hover::before {
+            background-color: $lightblue;
+            color: $white
+          }
+        }
+
+        .next-btn {
+          @extend .prev-btn;
+
+          &::before {
+            content: "\f105";
+          }
+        }
+      }
+    }
+
+    @at-root {
+      .client-logos {
+        padding: 130px 0;
+
+        @at-root .logos-lists {
+          @include flexbox (flex, center, $justify:space-between);
+        }
+      }
+    }
+  }
+}

@@ -33,42 +33,54 @@
 
       p {
         padding: 25px 0;
-        color: $grey;
-        font-weight: $semi-bold;
       }
 
-      form {
+      @at-root .banner-form {
         width: 100%;
         margin-top: 20px;
+
+        .input-group {
+          position: relative;
+
+          @at-root {
+      
+            .amount {
+              width: 100% ;
+              padding: 16px 18px;
+              border: 1px solid $lightgrey;
+              border-radius: 5px;
+              appearance: none;
+              background-color: transparent;
+              color: $grey;
+              cursor: pointer;
+              font-size: $small;
+              font-weight: $semi-bold;
+              outline: none;
+            }
         
-        @at-root {
-    
-          .amount {
-            width: 100% ;
-            padding: 16px 18px;
-            border: 1px solid $lightgrey;
-            border-radius: 5px;
-            appearance: none;
-            background-color: transparent;
-            color: $grey;
-            font-size: $small;
-            font-weight: $semi-bold;
-            outline: none;
+            .month {
+              @extend .amount;
+              margin: 15px 0;
+            }
+        
+            .amount-view {
+              margin: 23px 0 42px;
+              display: block;
+              color: $grey;
+              font-weight: $semi-bold;
+            }
           }
-      
-          .month {
-            @extend .amount;
-            margin: 15px 0;
+
+          &::after {
+            @include icons ("\f0d7", $grey);
+            @include positions (absolute, $top:32%, $right: 6%);
           }
-      
-          .amount-view {
-            margin: 23px 0 42px;
-            display: block;
-            color: $grey;
-            font-weight: $semi-bold;
+
+          &:nth-child(2)::after {
+            top: 40%;
           }
         }
-
+        
         .btn {
           width: 100%;
         }

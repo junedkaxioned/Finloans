@@ -1,0 +1,65 @@
+footer {
+  padding: 140px 0 50px;
+
+  a {
+    @include transition (.5s);
+
+    &:hover {
+      color: $turquoise;
+      
+    }
+  }
+
+  @at-root .footer-container {
+    li {
+      flex-basis: 33.33%
+    }
+
+    @include flexbox (flex);
+
+    @at-root {
+      .about-us {
+        .contact {
+          margin: 40px 0;
+          @include flexbox (flex, $direction: column);
+
+          @at-root .contact-list {
+            padding: 3px 0;
+            color: $grey;
+            font-size: $small;
+
+            a {
+              color: $grey;
+
+            }
+          }
+        }
+
+        
+      }
+    }
+
+    .footer-head {
+      color: $darkblue;
+      font-size: $medium-font;
+      font-weight: $semi-bold;
+      text-transform: capitalize;
+    }
+
+    @at-root .service-list {
+      margin: 40px 0;
+      @include flexbox (flex, $direction: column);
+
+      a {
+        margin: 15px 0;
+        color: $grey;
+        font-size: $extra-small;
+        font-weight: $semi-bold;
+      }
+    }
+
+    @at-root .links-lists {
+      @extend .service-list;
+    }
+  }
+}
