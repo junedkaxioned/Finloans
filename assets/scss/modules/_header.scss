@@ -155,7 +155,7 @@ header {
       @include flex-basis (30%);
   }
 
-    @at-root .contact {
+    .contact {
       @include flexbox (flex, center, column, $justify:center );
 
       @at-root .apply-btn {
