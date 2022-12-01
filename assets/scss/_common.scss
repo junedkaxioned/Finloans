@@ -1,8 +1,14 @@
 /* for wrapper */
 .wrapper {
   max-width: 1360px;
-  width: 57%; 
+  width: 81%; 
   margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 img { 
@@ -12,31 +18,71 @@ img {
 html {
   &.stop-scroll { overflow: hidden; }
 }
-  
 
 @at-root {
-  .bg-color {
-    padding: 0px 5px;
-    background-color: $offWhite;
+
+  // Common paragraph Style
+  p {
+    color: $grey;
+    font-weight: $semi-bold;
   }
 
-  .forground-color { color: $green; }
+  // Common Button Style
+  .btn {
+    padding: 14px 28px;
+    border: 1px solid $turquoise;
+    border-radius: 5px;
+    background-color: $turquoise;
+    color: $white;
+    font-size: $normal-font;
+    font-weight: $semi-bold;
+    text-transform: capitalize;
+    @include transition (.5s);
+
+    &:hover {
+      background-color: transparent;
+      color: $turquoise;
+    }
+  }
+
+  // Common Heading Style
+  .heading {
+    position: relative;
+    color: $darkblue;
+    font-size: $large-medium - 4;
+    text-align: center;
+
+    &::before {
+      content: "";
+      width: 5.5%;
+      height: 3px;
+      border-radius: 50px;
+      @include positions (absolute, $top:-26%, $left: 47.2%);
+      background-color: $turquoise;
+    }
+  }
+
+  // Common Sub Heading Style
+  .sub-heading {
+    padding: 18px 0;
+    text-align: center; 
+  }
 }
 
-@include responsiveMinMax(1024px, 1280px) {
+@include responsiveMinMax (1024px, 1280px) {
   .wrapper {
-    width: 70%;
+    width: 88%;
   }
 }
 
-@include responsiveMinMax(995px, 1023px) {
-  .wrapper { width: 80%; }
+@include responsiveMinMax (995px, 1024px) {
+  .wrapper {
+    width: 92%;
+  }
 }
 
-@include responsiveMinMax(768px, 994px) {
-  .wrapper { width: 85%; }
-}
-
-@include responsiveMax(767px) {
-  .wrapper { width: 90%; }
+@include responsiveMax (995px) {
+  .wrapper {
+    width: 95%;
+  }
 }

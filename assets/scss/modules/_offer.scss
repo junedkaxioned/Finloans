@@ -1,0 +1,161 @@
+.offer-section {
+  padding: 175px 0 30px;
+
+  .wrapper {
+    @at-root .offers {
+      width: 100%;
+      padding: 25px 0;
+      margin: 50px 0;
+      @include flexbox (flex);
+
+      @at-root {
+        .offer {
+          width: 100%;
+          border-radius: 5px;
+          margin-right: 30px;
+          background: linear-gradient($lightblue, $blue);
+
+          @at-root {
+            .price-container {
+              padding:50px 50px 30px;
+              @include flexbox (flex, center, column, $justify:center);
+
+              .offer-icon {
+                display: block;
+                text-indent: -99999px;
+
+                &::before {
+                  @include icons ( $color:$white, $font: $extra-large);
+                  float: left;
+                  text-indent: 0;
+                }
+              }
+
+              h3 {
+                padding: 46px 0 18px;
+                color: $white;
+                font-size: $normal-font;
+                text-transform: capitalize;
+              }
+
+              .offer-amount {
+                color: $turquoise;
+                font-size: $large-small - 2;
+              }
+            }
+
+            .list-container {
+              width: 100%;
+              padding:30px 50px 50px;
+              border-top: .1px solid rgba($lightblue, .5);
+              color: $white;
+
+              @at-root .offer-lists {
+                margin-bottom: 40px;
+                li {
+                  padding: 6px 0;
+                  @include flexbox (flex, center);
+                  &::before {
+                    @include icons ("\f111", $turquoise, $extra-small - 4);
+                    margin-right: 10px;
+                  }
+                }
+              }
+              .btn {
+                width: 100%;
+                text-align: center;
+              }
+            }
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        } 
+      }
+      @each $key, $value in $offer-icons {
+        li:nth-child(#{$key}) .offer-icon {
+           &::before {
+             content: $value;
+           }
+        }
+      }
+    }
+  }
+
+  @include responsiveMinMax (995px, 1280px) {
+    .wrapper {
+      width: 95%;
+    }
+
+    .offer {
+      margin-right: 15px;
+    
+      @at-root .list-container {
+        padding: 30px 30px 50px;
+      }
+    }
+  }
+
+  @include responsiveMinMax (768px, 995px) {
+      padding: 100px 0 30px;
+      
+      @at-root .offers {
+        @include flex-wrap (wrap);
+
+        .offer {  
+          margin: 0 auto 30px;
+         @include flex-basis (45%);
+
+
+          @at-root .list-container {
+            padding: 50px;
+            border: none;
+            .btn {
+              width: auto;
+            }
+          }
+        }
+      }
+  }
+
+  @include responsiveMinMax (540px, 768px) {
+    padding: 100px 0 30px;
+    
+     .offers {
+      @include flex-wrap (wrap);
+
+      
+      .offer {
+        margin: 0 auto 30px;
+         @include flex-basis (45%);
+
+        @at-root .price-container {
+          padding: 30px 15px;
+        }
+        
+        @at-root .list-container {
+          padding: 30px 15px;
+          border: none;
+
+
+          .btn {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsiveMax (540px) {
+    padding: 100px 0 30px;
+
+    @at-root .offers {
+      @include flex-direction (column); }
+
+    @at-root .offer {
+      margin: 0 0 20px;
+    }
+  }
+
+}

@@ -1,0 +1,53 @@
+.choose-us-section {
+  padding: 42px 0 150px;
+
+  .wrapper {
+    @include flexbox (flex, $justify:space-between);
+    
+    figure {
+      @include flex-basis (48.6%);
+    }
+    
+    @at-root .why-choose {
+      padding: 85px 0;
+      @include flex-basis (42.5%);
+
+      .heading {
+        padding-bottom: 35px;
+        text-align: left;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      p {
+        line-height: 1.8;
+      }
+
+      @at-root .choose-lists {
+        margin: 10px 0 45px;
+
+        li {
+          padding: 7px 0;
+          @include flexbox (flex, center);
+
+          &::before {
+            @include icons ("\f111", $lightblue, $extra-small - 4);
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+  @include responsiveMinMax (768px, 995px) {
+    .why-choose {
+      @include flex-basis (48%); 
+    }
+  }
+  @include responsiveMax (768px) {
+    .wrapper {
+      @include flex-direction (column);
+    }
+  }
+}

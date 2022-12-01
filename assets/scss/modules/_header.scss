@@ -1,0 +1,166 @@
+header {
+  width: 100%;
+  padding: 18px 34px;
+  background-color: transparent;
+  position: fixed;
+
+  .wrapper {
+    width: 100%;
+    @include flexbox (flex, center, $justify:space-between);
+
+    @at-root {
+
+      .logo { @include flex-basis (19%);}
+
+      .navlists {
+        display: flex;
+
+        a {
+          padding: 17px;
+          color: $white;
+          font-size: $extra-small;
+          font-weight: $semi-bold;
+          text-transform: capitalize;
+          @include transition (.5s);
+
+          &:hover {
+            color: $turquoise;
+          }
+        }
+
+        @at-root .pages {
+          &::after {
+            @include icons ("\f107", $white, $small);
+            padding: 2px; 
+          }
+
+          &:hover::after {
+            color: $turquoise;
+          }
+        }
+
+        @at-root .blogs {
+          @extend .pages;
+        }
+
+        .faq {
+          text-transform: uppercase;
+        }
+      }
+
+      .contact {
+        @at-root {
+          .call-us {
+            color: $white;
+            font-size: $extra-small;
+            font-weight: $semi-bold;
+            @include transition (.5s);
+
+            &::before {
+              @include icons ("\f095  ", $turquoise, $small);
+              padding-right: 10px;
+            }
+
+            &:hover {
+            color: $turquoise;
+            }
+          }
+        }
+      }
+
+      .apply-btn {
+        padding: 15px 10px;
+        border: 1px solid $turquoise;
+        border-radius: 5px;
+        margin: 0 15px 0 10px;
+        color: $turquoise;
+        font-size: $extra-small;
+        font-weight: $semi-bold;
+        @include transition (.5s);
+
+        &:hover {
+          background-color: $turquoise;
+          color: $white;
+        }
+      }
+
+      .hamburger {
+        width: 45px;
+        height: 45px;
+        border-radius: 2px;
+        display: none;
+        @include positions(relative, 2);
+        background-color: $turquoise;
+        cursor: pointer;
+  
+        .bar {
+          width: 40%;
+          height: 2.5px;
+          border-radius: 5px;
+          @include positions(absolute, $left: 30%);
+          background: $white;
+          text-indent: -99999px;
+          @include transition (.5s);
+  
+          &:nth-child(1) {
+            top: 40%;
+          }
+  
+          &:nth-child(2) {
+            top: 50%;
+          }
+  
+          &:nth-child(3) {
+            top: 60%;
+          }
+        }
+  
+        &.active {
+          .bar {
+            &:nth-child(1) {
+              @include transform (translateY(2px) rotate(-45deg));
+            }
+  
+            &:nth-child(2) {
+              opacity: 0;
+            }
+  
+            &:nth-child(3) {
+              @include transform (translateY(-7px) rotate(45deg));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    background-color: rgba(0,0,0,.8);
+  }
+
+  @include responsiveMax(768px) {
+    @at-root .logo {
+      @include flex-basis (30%);
+  }
+    nav {
+      display: none;
+    }
+
+    .hamburger { display: block;}
+  }
+
+  @include responsiveMax (540px) {
+
+    @at-root .logo {
+      @include flex-basis (30%);
+  }
+
+    @at-root .contact {
+      @include flexbox (flex, center, column, $justify:center );
+
+      @at-root .apply-btn {
+        padding: 10px;
+      }
+    }
+    }
+}

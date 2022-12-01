@@ -1,0 +1,123 @@
+.banner-section {
+  padding: 200px 0;
+  background-color: black;
+  background-image: url ();
+  color: $white;
+
+  .wrapper {
+    @include flexbox (felx, $justify:space-between);
+  }
+
+  @at-root {
+    .banner-content {
+      max-width: 50%;
+      width: 100%;
+      margin: 50px 0 0;
+
+      h2 {
+        padding: 42px 0;
+        font-size: $extra-large - 4;
+      }
+    }
+
+    .form-container {
+      padding: 50px;
+      border-radius: 5px;
+      @include flexbox (flex, center, column, center);
+      background-color: $white;
+
+      h3 {
+        color: $darkblue;
+        font-size: $medium-large + 6;
+      }
+
+      p {
+        padding: 25px 0;
+      }
+
+      @at-root .banner-form {
+        width: 100%;
+        margin-top: 20px;
+
+        .input-group {
+          position: relative;
+
+          @at-root {
+
+            .amount {
+              width: 100%;
+              padding: 16px 18px;
+              border: 1px solid $lightgrey;
+              border-radius: 5px;
+              appearance: none;
+              background-color: transparent;
+              color: $grey;
+              cursor: pointer;
+              font-size: $small;
+              font-weight: $semi-bold;
+              outline: none;
+            }
+
+            .month {
+              @extend .amount;
+              margin: 15px 0;
+            }
+
+            .amount-view {
+              margin: 23px 0 42px;
+              display: block;
+              color: $grey;
+              font-weight: $semi-bold;
+            }
+          }
+
+          &::after {
+            @include icons ("\f0d7", $grey);
+            @include positions (absolute, $top:32%, $right: 6%);
+          }
+
+          &:nth-child(2)::after {
+            top: 40%;
+          }
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @include responsiveMinMax (995px, 1023px) {
+    @at-root .banner-content {
+      h2 {
+        font-size: $large;
+      }
+    }
+  }
+
+  @include responsiveMinMax (768px, 994px) {
+    @at-root .banner-content {
+      h2 {
+        font-size: $large-medium;
+      }
+    }
+  }
+
+  @include responsiveMax (768px) {
+    padding: 80px 0;
+
+    .wrapper {
+      @include flex-direction (column);
+
+      @at-root .banner-content {
+        max-width: 100%;
+        margin: 50px 0;
+        text-align: center;
+        h2 {
+          font-size: $large-medium;
+        }
+      }
+    }
+  }
+}

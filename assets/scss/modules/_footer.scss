@@ -1,0 +1,184 @@
+footer {
+  padding: 140px 0 50px;
+
+  a {
+    color: $grey;
+    @include transition (.5s);
+
+    &:hover {
+      color: $turquoise;
+
+    }
+  }
+
+  @at-root .footer-container {
+    padding-bottom: 115px;
+    @include flexbox (flex);
+
+    @at-root {
+      .about-us {
+        @include flex-basis (40%);
+
+        .contact {
+          margin: 30px 0 52px;
+          @include flexbox (flex, $direction: column);
+
+          @at-root .contact-list {
+            padding: 3px 0;
+            color: $grey;
+            font-size: $small;
+            font-weight: $semi-bold;
+          }
+        }
+      }
+
+      .social-icons {
+        @include flexbox(flex, center);
+
+        .icon {
+          flex-basis: 0;
+          margin: 0 5px;
+
+          a {
+            text-indent: -9999px;
+
+            &::before {
+              width: 36px;
+              height: 36px;
+              border: 1px solid $lightgrey;
+              border-radius: 50%;
+              @include flexbox(flex, center, $justify:center);
+              @include icons ($color:$lightgrey, $font:$small);
+              text-indent: 0;
+              float: left;
+            }
+          }
+        }
+
+        @include icons-content ($social-icons);
+      }
+
+      .services {
+        @include flex-basis (20%);
+
+        @at-root .service-list {
+          margin: 40px 0;
+          @include flexbox (flex, $direction: column);
+
+          a {
+            margin: 13px 0;
+            font-size: $extra-small;
+            font-weight: $semi-bold;
+          }
+        }
+      }
+
+      .useful-links {
+        @extend .services;
+
+        @at-root .links-lists {
+          @extend .service-list;
+        }
+      }
+    }
+
+    .footer-head {
+      color: $darkblue;
+      font-size: $medium-font;
+      font-weight: $semi-bold;
+      text-transform: capitalize;
+    }
+
+
+
+
+    @at-root .subscribe {
+      @include flex-basis (37%);
+
+      .form-container {
+        padding: 2px;
+        border: 1px solid $lightgrey;
+        margin: 40px 0 20px;
+        @include flex-direction (row);
+        @include justify-content (space-between);
+
+
+        @at-root .input-subscribe {
+          padding: 14px 16px;
+          border: none;
+          outline: none;
+        }
+
+
+
+        .btn {
+          padding: 12px 24px;
+          background-color: $lightblue;
+          font-size: $extra-small;
+          font-weight: normal;
+        }
+      }
+
+      p {
+        padding-right: 2px;
+        font-size: $extra-small;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  @at-root .copyright {
+    color: darken($grey, 10%);
+    font-size: $small;
+    text-align: center;
+
+    .heart {
+      display: inline-block;
+      text-indent: -99999px;
+
+      &::before {
+        @include icons ("\f08a");
+        display: block;
+        float: left;
+        text-indent: 0;
+      }
+    }
+
+    a {
+      color: $lightblue;
+    }
+  }
+
+  @include responsiveMax(768px) {
+    padding: 70px 0 50px;
+
+    .footer-container {
+      padding-bottom: 50px;
+      @include flex-wrap (wrap);
+
+      >li {
+        margin-bottom: 20px;
+        @include flex-basis (50%);
+      }
+
+      @at-root .about-us {
+        .contact {
+
+          margin: 30px 0;
+        }
+      }
+    }
+  }
+
+  @include responsiveMax(480px) {
+
+    .footer-container {
+      >li:first-child {
+
+        @include flex-basis (100%);
+
+      }
+    }
+  }
+
+}
